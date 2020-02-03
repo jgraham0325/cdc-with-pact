@@ -15,7 +15,7 @@ services:
   pact_broker:
     image: dius/pact-broker:2.27.2-1
     ports:
-      - "80:80"
+      - "8089:80"
     links:
       - postgres
     environment:
@@ -25,6 +25,7 @@ services:
       PACT_BROKER_DATABASE_NAME: postgres
       PACT_BROKER_WEBHOOK_SCHEME_WHITELIST: http https
   jenkins:
+    image: jenkins:2.219
     build:
       context: jenkins
     ports:
